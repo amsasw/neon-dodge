@@ -11,8 +11,9 @@
 <body>
 <header class="topbar">
   <a class="brand" href="./"><span class="mark">p<span>u</span></span><span>PUFF LAB<small>SOFT PLAYGROUND</small></span></a>
-  <div class="edition">TACTILE PLAY · VOL 01</div>
+  <div class="edition">TACTILE PLAY · VOL 02 · MORE CHAOS</div>
   <div class="actions">
+    <button id="party" class="pill" aria-pressed="false">✦ <span>派对</span></button>
     <button id="sound" class="pill" aria-pressed="false">♪ <span>声音关</span></button>
     <button id="settingsBtn" class="pill">⚙ <span>调一调</span></button>
   </div>
@@ -22,19 +23,25 @@
   <section class="headline">
     <div class="eyebrow">A TINY SOFT THING</div>
     <h1>今天，也可以<br><em>软一点</em></h1>
-    <p>捏捏、拉拉、挠一挠，或者把它抛起来。</p>
+    <p>别只看着它。捏、拉、挠、扔，看看它会不会生气。</p>
   </section>
 
   <section class="meta">
     <span>MEET PUFF</span>
     <strong id="materialLabel">奶油软胶 · 慢吞吞性格</strong>
-    <small>NO 001 / ORIGINAL SOFT OBJECT</small>
+    <small id="achievement">ACHIEVEMENT · 还没被玩坏</small>
   </section>
 
   <section id="stage" class="stage">
     <div class="shadow" id="shadow"></div>
     <canvas id="toy" aria-label="可互动的 PUFF 小软物"></canvas>
+    <canvas id="fx" aria-hidden="true"></canvas>
     <div class="speech" id="speech">按住我试试，双击也有惊喜</div>
+    <div class="combo" id="combo"><b>x1</b><span>SOFT COMBO</span></div>
+    <div class="mini-stats">
+      <span id="level">PUFF Lv.1</span>
+      <span id="bestCombo">BEST x0</span>
+    </div>
   </section>
 
   <nav class="tools" aria-label="玩法">
@@ -51,12 +58,12 @@
 
   <aside class="note">
     <span>✦</span>
-    <p>今天不必满分<br>舒服一点就很好</p>
+    <p>连击越高，<br>它就越不正常。</p>
     <button id="surprise">给我一个小惊喜 ↗</button>
   </aside>
 
   <footer class="bottom">
-    <div class="hint"><kbd>↔</kbd><span id="hint">按住捏一捏，拖动可以把它拽走</span><button id="reset">归位 ↺</button></div>
+    <div class="hint"><kbd>↔</kbd><span id="hint">按住捏一捏；Space 也能捏，P 开派对</span><button id="reset">归位 ↺</button></div>
     <button id="collect" class="collect"><span><b id="count">0</b> 次小快乐</span><strong>收藏这一刻 ↗</strong></button>
   </footer>
 </main>
@@ -71,11 +78,13 @@
     <button class="swatch" data-color="#d8e7dc" style="--c:#d8e7dc" aria-label="薄荷"></button>
     <button class="swatch" data-color="#d9d6ef" style="--c:#d9d6ef" aria-label="薰衣草"></button>
     <button class="swatch" data-color="#f0cfd2" style="--c:#f0cfd2" aria-label="草莓"></button>
+    <button class="swatch" data-color="#cfe3f3" style="--c:#cfe3f3" aria-label="汽水"></button>
   </div>
   <h3>软糯程度</h3>
   <div class="range-row"><input id="softness" type="range" min="35" max="95" value="74"><output id="softOut">74</output></div>
   <h3>可爱尺寸</h3>
   <div class="range-row"><input id="size" type="range" min="80" max="125" value="100"><output id="sizeOut">100%</output></div>
+  <p class="setting-tip">隐藏按键：<kbd>Space</kbd> 捏 · <kbd>P</kbd> 派对 · <kbd>S</kbd> 惊喜 · 方向键推它</p>
   <button id="doneSettings" class="primary">就这样，抱走</button>
 </dialog>
 
