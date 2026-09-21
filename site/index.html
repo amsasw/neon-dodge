@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f3eee7">
+  <meta name="description" content="PUFF Soft Lab — 一个可以捏、拉、挠、抛的小软物互动页面">
+  <title>PUFF · Soft Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="./"><span class="mark">p<span>u</span></span><span>PUFF LAB<small>SOFT PLAYGROUND</small></span></a>
+  <div class="edition">TACTILE PLAY · VOL 01</div>
+  <div class="actions">
+    <button id="sound" class="pill" aria-pressed="false">♪ <span>声音关</span></button>
+    <button id="settingsBtn" class="pill">⚙ <span>调一调</span></button>
+  </div>
+</header>
+
+<main class="experience">
+  <section class="headline">
+    <div class="eyebrow">A TINY SOFT THING</div>
+    <h1>今天，也可以<br><em>软一点</em></h1>
+    <p>捏捏、拉拉、挠一挠，或者把它抛起来。</p>
+  </section>
+
+  <section class="meta">
+    <span>MEET PUFF</span>
+    <strong id="materialLabel">奶油软胶 · 慢吞吞性格</strong>
+    <small>NO 001 / ORIGINAL SOFT OBJECT</small>
+  </section>
+
+  <section id="stage" class="stage">
+    <div class="shadow" id="shadow"></div>
+    <canvas id="toy" aria-label="可互动的 PUFF 小软物"></canvas>
+    <div class="speech" id="speech">按住我试试，双击也有惊喜</div>
+  </section>
+
+  <nav class="tools" aria-label="玩法">
+    <button class="tool active" data-mode="squish"><span>◉</span><b>捏一捏</b><small>01</small></button>
+    <button class="tool" data-mode="stretch"><span>↗</span><b>拉长长</b><small>02</small></button>
+    <button class="tool" data-mode="tickle"><span>〰</span><b>挠痒痒</b><small>03</small></button>
+    <button class="tool" data-mode="toss"><span>↥</span><b>抛一下</b><small>04</small></button>
+  </nav>
+
+  <section class="caption">
+    <strong>PUFF</strong>
+    <span id="mood">正在假装自己很镇定</span>
+  </section>
+
+  <aside class="note">
+    <span>✦</span>
+    <p>今天不必满分<br>舒服一点就很好</p>
+    <button id="surprise">给我一个小惊喜 ↗</button>
+  </aside>
+
+  <footer class="bottom">
+    <div class="hint"><kbd>↔</kbd><span id="hint">按住捏一捏，拖动可以把它拽走</span><button id="reset">归位 ↺</button></div>
+    <button id="collect" class="collect"><span><b id="count">0</b> 次小快乐</span><strong>收藏这一刻 ↗</strong></button>
+  </footer>
+</main>
+
+<dialog id="settings">
+  <button class="close" id="closeSettings">×</button>
+  <div class="eyebrow">MAKE IT YOURS</div>
+  <h2>给 PUFF 换个手感</h2>
+  <h3>今天的颜色</h3>
+  <div class="swatches">
+    <button class="swatch selected" data-color="#ead9c3" style="--c:#ead9c3" aria-label="奶油"></button>
+    <button class="swatch" data-color="#d8e7dc" style="--c:#d8e7dc" aria-label="薄荷"></button>
+    <button class="swatch" data-color="#d9d6ef" style="--c:#d9d6ef" aria-label="薰衣草"></button>
+    <button class="swatch" data-color="#f0cfd2" style="--c:#f0cfd2" aria-label="草莓"></button>
+  </div>
+  <h3>软糯程度</h3>
+  <div class="range-row"><input id="softness" type="range" min="35" max="95" value="74"><output id="softOut">74</output></div>
+  <h3>可爱尺寸</h3>
+  <div class="range-row"><input id="size" type="range" min="80" max="125" value="100"><output id="sizeOut">100%</output></div>
+  <button id="doneSettings" class="primary">就这样，抱走</button>
+</dialog>
+
+<dialog id="cardDialog" class="card-dialog">
+  <button class="close" id="closeCard">×</button>
+  <div class="eyebrow">A LITTLE PROOF OF HAPPINESS</div>
+  <h2>今天的快乐，有形状了</h2>
+  <img id="cardImage" alt="PUFF 收藏卡">
+  <div class="card-actions">
+    <button id="downloadCard">保存图片 ↓</button>
+    <button id="shareCard" class="primary">分享快乐 ↗</button>
+  </div>
+</dialog>
+
+<div id="toast" class="toast"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
