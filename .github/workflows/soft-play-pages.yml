@@ -2,7 +2,7 @@ name: Deploy Soft Play to GitHub Pages
 
 on:
   push:
-    branches: [soft-play-web]
+    branches: [main, soft-play-web]
   workflow_dispatch:
 
 permissions:
